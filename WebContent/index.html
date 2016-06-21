@@ -1,9 +1,12 @@
 
-<html lang="en" data-ng-app="nestApp">
+<html lang="en" data-ng-app="Nest">
 <head> 
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <title>N.E.S.T.</title>
 
-<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="scripts/bootstrap/css/bootstrap.min.css"/>
+
 <script src="scripts/bootstrap/js/bootstrap.min.js"></script>
 <script src="scripts/jquery-2.1.4.min.js"></script>
 <script src="scripts/angular.min.js"></script>
@@ -11,14 +14,16 @@
 <script src="scripts/angular-resource.min.js"></script>
 <script src="scripts/angular-cookies.min.js"></script>
 
-<script src="js/app.js"></script>
-<script src="js/controllers.js"></script>
-
-
+<script src="Nest.js"></script>
+<script src="nest/login/Login.js"></script>
+<script src="nest/soaservices/Services.js"></script>
+<link href="css/signin.css" rel="stylesheet">
+ 
 </head>
 
 <body>
-
+<div data-ng-include src="'nest/app/tmpl/menu.html'"></div> 
+ 
 <div data-ng-view></div>
 </body>
 </html>
