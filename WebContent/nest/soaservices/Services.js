@@ -24,21 +24,24 @@ servicesModule.controller('ServicesCtrl',
 servicesModule.factory('AccountDispositionSvc',['$resource',
     function($resource){
     	return $resource("http://jsonplaceholder.typicode.com/posts", {},{
-    		get: {method: 'GET', cache: false, isArray: true}
+    		get: {method: 'GET', cache: false, isArray: true},
+    		save: {method: 'POST', cache: false, isArray: false},
     	});
 }]); 
                                                 	
                                                 	
 servicesModule.controller('AccountDispositionCtrl',
-   function(){	
+   function(AccountDispositionSvc){	
 	  var disp = this;
+	  disp.svc = AccountDispositionSvc;
 	  disp.text=  "Account Disposition Page";
-	  disp.process = function(AccountDispositionSvc){		  
+	  disp.process = function(){		  
 			alert("Service Call successful");
-			AccountDispositionSvc.get({},
+			var data = "id=" + disp.accountId + "&title=" + disp.dispositionCode + "&userId=1";
+			disp.svc.save({data: data},
 			function success(response){
 				console.log("Success:" + JSON.stringify(response));
-				$scope.postEntries = response;
+				disp.postEntries = response;
 			},
 			function error(errorResponse) {
 				console.log("Error:" + JSON.stringfy(errorResponse));
@@ -49,15 +52,7 @@ servicesModule.controller('AccountDispositionCtrl',
 });
 
 
-//AccountDispositionSvc.get({},
-//function success(response){
-//	console.log("Success:" + JSON.stringify(response));
-//	$scope.postEntries = response;
-//},
-//function error(errorResponse) {
-//	console.log("Error:" + JSON.stringfy(errorResponse));
-//}
-//);	
+ 
 
 
 

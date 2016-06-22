@@ -26,6 +26,7 @@ nestModule.config(['$routeProvider',
 		  })
 		  .when('/soaservices/accountDisposition',{
 			  templateUrl: 'nest/soaservices/tmpl/testRest.html',
-			  controller: 'AccountDispositionCtrl', 
+			  controller: 'AccountDispositionCtrl',
+			  controllerAs: 'disp'
 		  });
 }]);
