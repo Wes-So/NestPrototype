@@ -3,24 +3,21 @@
 	<br>
 	<h3>{{disp.text}}</h3>
 	<div class="input-group">
-		  <input
-			type="text" id="inputAccountId" class="form-control"
-			data-ng-model='disp.accountId' placeholder="Account Id"
-			required autofocus> 
-		  <input type="text" id="inputDisposition"
-			class="form-control" data-ng-model='disp.dispositionCode'
-			placeholder="Disposition" required>
+		<form>
+			<input type="text" id="inputAccountId" class="form-control"
+				data-ng-model='disp.accountId' placeholder="Account Id" required auto-focus> 
+			<input type="text" id="inputDisposition"
+				class="form-control" data-ng-model='disp.dispositionCode'
+				placeholder="Disposition" required>
 
-		<button class="btn btn-lg btn-primary btn-block"
-			data-ng-click='disp.process()' type="submit">Add</button>
-	</div>
-<!-- 	<div ng-repeat="postEntry in disp.postEntries">
-		<div>Title: {{postEntry.title}}</div>
-		<div>Body: {{postEntry.body}}</div>
-	</div> -->
-	
+	    	<div class="radio" data-ng-init="disp.operation=rem">
+				<label><input type="radio" name="operation" data-ng-model='disp.operation' value="add" checked>Add</label> 
+				<label><input type="radio" name="operation" data-ng-model='disp.operation' value="rem" >Remove</label>
+			</div>		 
+			<button class="btn btn-lg btn-primary btn-block" data-ng-click='disp.process()' type="submit">Add</button>
+		</form>
+	</div> 
 	<div>
-		<p>{{disp.postEntries.id}}</p>
+		<p>{{disp.operation}}</p>
 	</div>
-	
 </div>
