@@ -5,14 +5,6 @@ servicesModule.controller('ServicesCtrl',
 		var services = this;
 		services.text = "SOA11G Services page";   
 	});
-
-
-//servicesModule.factory('AccountDispositionSvc',['$resource',
-//    function($resource){
-//    	return $resource("http://jsonplaceholder.typicode.com/posts", {},{
-//    		save: {method: 'POST', cache: false, isArray: false},
-//    	});
-//}]); 
      
 
 servicesModule.factory('AccountDispositionSvc',['$resource',
@@ -23,7 +15,24 @@ function($resource){
 }]); 
 
 servicesModule.value('DISPOSITIONS',[
-  {code: 'LSC'}
+  {code: 'BPRM'},
+  {code: 'FRAN-PND'},
+  {code: 'FRAN-ACPT'},
+  {code: 'FRAN-REJ'},
+  {code: 'EODIS'},
+  {code: 'GOOD'},
+  {code: 'LNBZ'},
+  {code: 'NBIZ'},
+  {code: 'SKP'},
+  {code: 'HOT'},
+  {code: 'PROM'},
+  {code: 'STL-EXP'},
+  {code: 'STL-REQF'},
+  {code: 'STL'},
+  {code: 'STL-REQC'},
+  {code: 'UTL'},
+  {code: 'LSC'},
+  {code: 'LSC-RDY'}
 ]);
                                                 	
 servicesModule.controller('AccountDispositionCtrl',

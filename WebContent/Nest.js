@@ -8,8 +8,13 @@ var nestModule = angular.module('Nest',[
 
 nestModule.config(['$routeProvider',
     function($routeProvider){
-		$routeProvider.
-		  when('/',{
+		$routeProvider
+		  .when('/',{
+			  templateUrl: 'nest/soaservices/tmpl/services.html',
+			  controller: 'ServicesCtrl',
+			  controllerAs: 'services'
+		  })		
+		  .when('/login',{
 			  templateUrl: 'nest/login/tmpl/login.html',
 			  controller: 'LoginCtrl',
 			  controllerAs: 'login'
@@ -21,11 +26,6 @@ nestModule.config(['$routeProvider',
 		  })
 		  .when('/soaservices/disposition', {
 			  templateUrl: 'nest/soaservices/tmpl/disposition.html',
-			  controller: 'AccountDispositionCtrl',
-			  controllerAs: 'disp'
-		  })
-		  .when('/soaservices/accountDisposition',{
-			  templateUrl: 'nest/soaservices/tmpl/testRest.html',
 			  controller: 'AccountDispositionCtrl',
 			  controllerAs: 'disp'
 		  });
