@@ -1,4 +1,4 @@
-var servicesModule = angular.module('Nest.Services',['ngResource']);
+var servicesModule = angular.module('Nest.Services',[]);
 
 servicesModule.controller('ServicesCtrl',
 	function(){
@@ -7,66 +7,6 @@ servicesModule.controller('ServicesCtrl',
 	});
      
 
-servicesModule.factory('AccountDispositionSvc',['$resource',
-function($resource){
-	return $resource("http://el01cn06:8002/AccountOSBRest/ProxyServices/AccountDisposition", {},{
-		save: {method: 'POST', cache: false, isArray: false},
-	});
-}]); 
-
-servicesModule.value('DISPOSITIONS',[
-  {code: 'BPRM'},
-  {code: 'FRAN-PND'},
-  {code: 'FRAN-ACPT'},
-  {code: 'FRAN-REJ'},
-  {code: 'EODIS'},
-  {code: 'GOOD'},
-  {code: 'LNBZ'},
-  {code: 'NBIZ'},
-  {code: 'SKP'},
-  {code: 'HOT'},
-  {code: 'PROM'},
-  {code: 'STL-EXP'},
-  {code: 'STL-REQF'},
-  {code: 'STL'},
-  {code: 'STL-REQC'},
-  {code: 'UTL'},
-  {code: 'LSC'},
-  {code: 'LSC-RDY'}
-]);
-                                                	
-servicesModule.controller('AccountDispositionCtrl',
-   function(AccountDispositionSvc,DISPOSITIONS){	
-	  var disp = this; 
-	  disp.svc = AccountDispositionSvc;
-	  disp.text=  "Account Disposition Page";
-	  disp.dispCodes = DISPOSITIONS;
-	  disp.operation='ADD';
-	  
-	  disp.process = function(){		  			
- 
-	  		var data = "accountId=" + disp.accountId + "&disposition=" + disp.selectedDisposition.code + "&operation=" + disp.operation + "&userName=NestUser";			
-			alert("Service Call successful:" + data);
-			//TODO: uncomment when running
-			//disp.svc.save({data: data},		
-					
-//		   function success(response){
-//				//console.log("Success:" + JSON.stringify(response));
-//				disp.postEntries = response;
-//			},
-//			function error(errorResponse) {
-//				alert("Error happened");
-//				console.log("Error happened");
-//				
-//				//console.log("Error:" + JSON.stringfy(errorResponse));
-//			}
-//			);	 
- 
-		  
-			
-	  }	
-		   
-});
 
 
  
